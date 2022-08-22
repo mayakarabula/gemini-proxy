@@ -2,7 +2,7 @@
 
 ## What?
 
-This repo allows to read gemini websites via http proxy?
+This repo allows to read gemini websites via http proxy
 
 ## Why?
 
