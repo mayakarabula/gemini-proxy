@@ -19,13 +19,16 @@ Just to allow to browse gemini via modern web browser like Firefox
 * Node
 * [gemget](https://github.com/makeworld-the-better-one/gemget)
 
-## Installation
+## Installation and Usage
 ```
 npm install
 npm run start
 ```
 
 This will start http server at port 2456
+
+then you can access gemini sites via gemUrl parameter in URL, eg:
+http://localhost:2345/?gemUrl=gemini://gemini.cyberbot.space
 
 ## Screenshots
 
