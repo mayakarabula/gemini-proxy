@@ -4,6 +4,7 @@ const render = require('gemini-to-html/render')
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
+const style = require('./style').default
 
 const app = express()
 const port = 2345
@@ -47,9 +48,9 @@ const proxyLinks = (gem, baseUrl) => {
     return newGem
 }
 
-const githubCss = '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-dark.css" integrity="sha512-q0UqxA0Ka1VxVBMFJoNfTVBYFWXqkNeF1N6WZPyLNULkF9YdpAuS/dqsN3/ClxBUzHJGrrkgLJFUlzFgXunXDQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />'
+const githubCss = `<style>${style}</style>`
 
-const body = '<body class="markdown-body" style="margin: 2em auto; max-width: 800px">'
+const body = '<body>'
 
 app.get('/', (req, res) => {
     const gemUrl = req.query.gemUrl
