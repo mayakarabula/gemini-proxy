@@ -14,13 +14,19 @@ const fetchGem = (url) => {
     if (gemget.status === 0) {
         const data = fs.readFileSync(path.join(__dirname, 'out'), {encoding: 'utf-8'})
     
-        const html = body + githubCss + render(parse(proxyLinks(data, url)))
+        const html = addTitle(data) + body + githubCss + render(parse(proxyLinks(data, url)))
 
         return html
     } else {
         console.log('!! error fetching ', url)
         return ''
     }
+}
+
+const addTitle = (gem) => {
+    const title = gem.match(/#\s.*/)?.[0]?.slice(2)
+    
+    return title ? `<title>${title}</title>` : ''
 }
 
 const proxyLinks = (gem, baseUrl) => {
