@@ -10,6 +10,11 @@ const app = express()
 const port = 2345
 
 const fetchGem = (url) => {
+    try {
+      fs.unlinkSync('out')
+    } catch (e) {
+    }
+
     const gemget = spawnSync('gemget', [url, '-oout'])
 
     if (gemget.status === 0) {
